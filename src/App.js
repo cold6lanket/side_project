@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import { Navbar } from "./components/Navbar";
+import { Constructors } from "./components/Constructors";
+import { Scheme } from "./components/Scheme";
+import { Preview } from "./components/Preview";
+// styles
+import styles from "./App.module.css";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const handleConstructorChange = (id) => {
+        // do state update
+    };
+
+    return (
+        <div>
+            <Navbar />
+            <div className={styles.mainBody}>
+                <Constructors onChange={handleConstructorChange} />
+                <Scheme />
+                <Preview />
+            </div>
+        </div>
+    );
 }
 
 export default App;
