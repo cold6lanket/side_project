@@ -1,21 +1,15 @@
 import React from 'react';
 import DynamicIcon from "../elements/DynamicIcon";
-
-const styles = {
-    display: "flex",
-    alignItems: "center",
-    gap: 10,
-    flexDirection: "column"
-};
+import styles from "./Constructors.module.css";
 
 export function Constructors({ onChange, items }) {
     return (
-        <aside style={styles}>
-            {items.map(({id, ...item}) => {
+        <aside style={styles.constructors}>
+            {items.map(({ type, ...item }) => {
                 return (
                     <DynamicIcon
-                        key={id}
-                        onClick={() => onChange(id)}
+                        key={type}
+                        onClick={() => onChange(type)}
                         {...item}
                     />
                 );

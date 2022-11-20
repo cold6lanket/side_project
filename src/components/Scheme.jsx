@@ -18,6 +18,8 @@ const schemeStyle = {
     gap: 10
 };
 
+// TODO: improve css styling
+
 export function Scheme({
    blocks = [],
    onChange,

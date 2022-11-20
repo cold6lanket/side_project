@@ -14,10 +14,10 @@ import { v4 as uuidv4 } from 'uuid';
 import styles from "./App.module.css";
 
 const items = [
-    { title: "Headline", icon: <BsTextParagraph size="1.2em" />, id: "headline" },
-    { title: "Image", icon: <BsFillImageFill size="1.2em" />, id: "image" },
-    { title: "Button", icon: <BsMenuButton size="1.2em" />, id: "button" },
-    { title: "Paragraph", icon: <BsParagraph size="1.2em" />, id: "paragraph" }
+    { title: "Headline", icon: <BsTextParagraph size="1.2em" />, type: "headline" },
+    { title: "Image", icon: <BsFillImageFill size="1.2em" />, type: "image" },
+    { title: "Button", icon: <BsMenuButton size="1.2em" />, type: "button" },
+    { title: "Paragraph", icon: <BsParagraph size="1.2em" />, type: "paragraph" }
 ];
 
 const componentTypes = {
@@ -30,10 +30,10 @@ const componentTypes = {
 function App() {
     const [selectedBlocks, setSelectedBlocks] = useState([]);
 
-    const handleConstructorChange = (id) => {
+    const handleConstructorChange = (type) => {
         setSelectedBlocks([...selectedBlocks, {
-            ...items.find(item => item.id === id),
-            render: componentTypes[id],
+            ...items.find(item => item.type === type),
+            render: componentTypes[type],
             value: "",
             id: uuidv4()
         }]);
@@ -45,6 +45,7 @@ function App() {
             let value;
 
             if (target.hasOwnProperty("files")) {
+                // TODO: fix image src format
                 value = URL.createObjectURL(target.files[0]);
             } else {
                 value = target.value;
@@ -82,7 +83,7 @@ function App() {
                     onDirectionChange={handleDirectionChange}
                     onDelete={handleBlockDelete}
                 />
-                <Preview />
+                <Preview content={selectedBlocks} />
             </div>
         </div>
     );
