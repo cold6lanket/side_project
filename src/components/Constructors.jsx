@@ -1,30 +1,16 @@
 import React from 'react';
 import DynamicIcon from "../elements/DynamicIcon";
-import {
-    BsFillImageFill,
-    BsTextParagraph,
-    BsParagraph,
-    BsMenuButton
-} from "react-icons/bs";
-
-const items = [
-    { title: "Headline", icon: <BsTextParagraph size="1.2em" />, id: "headline" },
-    { title: "Image", icon: <BsFillImageFill size="1.2em" />, id: "image" },
-    { title: "Button", icon: <BsMenuButton size="1.2em" />, id: "button" },
-    { title: "Paragraph", icon: <BsParagraph size="1.2em" />, id: "paragraph" }
-];
 
 const styles = {
-    display: "grid",
-    gridTemplateColumns: "1fr 1fr",
-    justifyItems: "center",
-    gap: 10,
+    display: "flex",
     alignItems: "center",
+    gap: 10,
+    flexDirection: "column"
 };
 
-export function Constructors({ onChange }) {
+export function Constructors({ onChange, items }) {
     return (
-        <div style={styles}>
+        <aside style={styles}>
             {items.map(({id, ...item}) => {
                 return (
                     <DynamicIcon
@@ -34,6 +20,6 @@ export function Constructors({ onChange }) {
                     />
                 );
             })}
-        </div>
+        </aside>
     );
 }

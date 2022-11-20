@@ -3,4 +3,10 @@
     grid-template-columns: 300px 500px 1fr;
     justify-items: center;
     margin-top: 20px;
+    height: 80vh;
+}
+
+main {
+    grid-column: 2 / 3;
+    overflow-y: scroll;
 }
