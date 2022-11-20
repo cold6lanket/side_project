@@ -4,7 +4,7 @@ import styles from "./Constructors.module.css";
 
 export function Constructors({ onChange, items }) {
     return (
-        <aside style={styles.constructors}>
+        <aside className={styles.constructors}>
             {items.map(({ type, ...item }) => {
                 return (
                     <DynamicIcon
